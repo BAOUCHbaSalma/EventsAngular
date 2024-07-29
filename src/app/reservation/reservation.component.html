@@ -1,0 +1,25 @@
+<table>
+    <thead>
+    <tr>
+      <th>idReservetion</th>
+      <th>dateReservation</th>
+      <th>HeursReservation</th>
+      <th>evenement</th>
+      <th>user</th>
+    
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reservation of reservationList">
+      <td>{{reservation.idReservetion}}</td>
+      <td>{{reservation.dateReservation}}</td>
+      <td>{{reservation.HeursReservation}}</td>
+      <td>{{reservation.evenement.idEvenement}}</td>
+      <td>{{reservation.user.userId}}</td>
+     
+
+    </tr>
+
+    </tbody>
+  </table>
