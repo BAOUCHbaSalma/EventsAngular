@@ -3,7 +3,7 @@ export interface User{
     username:string
     password:string
     age:number
-    genre:string
+    email:string
     role:Erole
 }
 

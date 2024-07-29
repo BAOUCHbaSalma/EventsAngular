@@ -1,0 +1,19 @@
+
+    <h1>Sing up</h1>
+  <form [formGroup]="registreForm" (ngSubmit)="hundelSubmit()">
+      <label for="username">username:</label>
+      <input id="username" formControlName="username" type="text">
+    
+      <label for="password">password:</label>
+      <input id="password" formControlName="password" type="text">
+    
+      <label for="age">age:</label>
+      <input id="age" formControlName="age" type="number">
+    
+      <label for="email">email:</label>
+      <input id="email" formControlName="email" type="text">
+    
+      <button  type="submit">Submit</button>
+    </form>
+
+  
