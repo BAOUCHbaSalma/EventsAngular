@@ -37,3 +37,7 @@ export enum Erole {
     ADMIN = 'ADMIN',
     USER = 'USER'
 }
+export interface LoginRequest{
+    username:string
+    password:string
+}
