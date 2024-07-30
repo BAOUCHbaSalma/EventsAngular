@@ -12,7 +12,7 @@ export interface User{
 export interface Reservation{
     idReservetion:number
     dateReservation:string
-    HeursReservation:string
+    heursReservation:string
     evenement:Evenement
     user:User
 }

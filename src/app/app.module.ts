@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { IntercepteurService } from './service/intercepteur.service';
 import { AddreservationComponent } from './addreservation/addreservation.component';
+import { EvenementComponent } from './evenement/evenement.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AddreservationComponent } from './addreservation/addreservation.compone
     RegistreComponent,
     LoginComponent,
     ReservationComponent,
-    AddreservationComponent
+    AddreservationComponent,
+    EvenementComponent
   ],
   imports: [
     BrowserModule,
