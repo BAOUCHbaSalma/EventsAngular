@@ -16,18 +16,18 @@ export class SendMessageComponent implements OnInit{
     this.messageForm=this.fb.group({
       sujet:'',
       message:'',
-      idUser:''
+      userId:''
     })
 
   }
 
-  handelSubmit(){
+  hundelSubmit(){
     const message:Contact={
       idContact: 0,
       sujet:this.messageForm.value.sujet,
       message:this.messageForm.value.message,
       user: {
-        userId: this.messageForm.value.idUser,
+        userId: this.messageForm.value.userId,
         username: '',
         password: '',
         age: 0,
@@ -35,6 +35,9 @@ export class SendMessageComponent implements OnInit{
         role:Erole.USER
       }
     }
+    this.srv.sendMessage(message).subscribe(()=>{
+      this.ngOnInit()
+    })
   }
 
 }
