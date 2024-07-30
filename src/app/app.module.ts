@@ -11,6 +11,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { IntercepteurService } from './service/intercepteur.service';
 import { AddreservationComponent } from './addreservation/addreservation.component';
 import { EvenementComponent } from './evenement/evenement.component';
+import { SendMessageComponent } from './send-message/send-message.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EvenementComponent } from './evenement/evenement.component';
     LoginComponent,
     ReservationComponent,
     AddreservationComponent,
-    EvenementComponent
+    EvenementComponent,
+    SendMessageComponent
   ],
   imports: [
     BrowserModule,
