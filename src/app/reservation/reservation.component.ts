@@ -18,7 +18,9 @@ export class ReservationComponent implements OnInit{
     this.idUser=this.route.snapshot.paramMap.get("id")
     this.srv.showReservation(this.idUser).subscribe(value=>{
       this.reservationList=value
+      console.log(this.reservationList)
     })
+
   
   }
 

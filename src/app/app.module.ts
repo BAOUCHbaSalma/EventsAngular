@@ -9,13 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { IntercepteurService } from './service/intercepteur.service';
+import { AddreservationComponent } from './addreservation/addreservation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistreComponent,
     LoginComponent,
-    ReservationComponent
+    ReservationComponent,
+    AddreservationComponent
   ],
   imports: [
     BrowserModule,

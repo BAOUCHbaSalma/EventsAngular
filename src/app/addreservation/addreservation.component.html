@@ -1,0 +1,18 @@
+
+<h1>Reservation</h1>
+<form [formGroup]="reservationForm" (ngSubmit)="hundelSubmit()">
+    <label for="dateReservation">dateReservation:</label>
+    <input id="dateReservation" formControlName="dateReservation" type="date">
+  
+    <label for="HeursReservation">HeursReservation:</label>
+    <input id="HeursReservation" formControlName="HeursReservation" type="time">
+  
+    <label for="idEvenement">idEvenement:</label>
+    <input id="idEvenement" formControlName="idEvenement" type="number">
+  
+    <label for="userId">userId:</label>
+    <input id="userId" formControlName="userId" type="number">
+  
+    <button  type="submit">Submit</button>
+  </form>
+

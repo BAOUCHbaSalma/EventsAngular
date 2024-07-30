@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit{
       }
        this.srvd.getIdByUsername(res.token).subscribe(
         id=>{
-          this.route.navigateByUrl(`reservation/${id}`)
+          this.route.navigateByUrl(`reservations/${id}`)
         }
        )
 
