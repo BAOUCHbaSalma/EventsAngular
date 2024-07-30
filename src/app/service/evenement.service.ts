@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Evenement} from "../model/events";
 import {Observable} from "rxjs";
@@ -7,8 +7,9 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class EvenementService {
- // urlApiUser="http://localhost:8080/user"
-  //urlApiAdmin="http://localhost:8080/admin"
+ urlApiUser="http://localhost:8080/user"
+ urlApiUserSearch="http://localhost:8080/user/searchevents"
+  urlApiAdmin="http://localhost:8080/admin"
   urlApi="http://localhost:8080"
 
   constructor(private http :HttpClient) { }
@@ -16,8 +17,14 @@ export class EvenementService {
   public showAllEvents(){
     return this.http.get(`${this.urlApi}/evenements`)
   }
+  SearchEvents(lieu: string, categorie: string, date: string): Observable<Evenement[]> {
+    let params = new HttpParams();
+    if (lieu) params = params.set('lieu', lieu);
+    if (categorie) params = params.set('categorie', categorie);
+    if (date) params = params.set('date', date);
 
-
+    return this.http.get<Evenement[]>(this.urlApiUserSearch, { params });
+  }
 
   // Retrieve a single event by ID
   getEvenementById(id: number): Observable<Evenement> {
