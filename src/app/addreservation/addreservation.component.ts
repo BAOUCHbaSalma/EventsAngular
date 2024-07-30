@@ -21,7 +21,7 @@ export class AddreservationComponent implements OnInit{
     this.idEvenement=this.route.snapshot.paramMap.get('ide')
     this.reservationForm=this.fb.group({
       dateReservation:'',
-      HeursReservation:'',
+      heursReservation:'',
       idEvenement:this.idEvenement,
       userId:''
     })
@@ -32,7 +32,7 @@ export class AddreservationComponent implements OnInit{
   const reservation:Reservation={
     idReservetion:0,
     dateReservation:this.reservationForm.value.dateReservation,
-    HeursReservation:this.reservationForm.value.HeursReservation,
+    heursReservation:this.reservationForm.value.heursReservation,
     
     evenement:{
       idEvenement: this.reservationForm.value.idEvenement,
@@ -58,7 +58,7 @@ export class AddreservationComponent implements OnInit{
   console.log(this.reservationForm.value.HeursReservation)
   
   this.srv.addReservation(reservation).subscribe(()=>{
-    console.log(reservation.HeursReservation)
+    console.log(reservation.heursReservation)
     this.ngOnInit()
   })
  }

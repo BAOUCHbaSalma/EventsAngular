@@ -1,0 +1,28 @@
+<table>
+    <thead>
+    <tr>
+      <th>titre</th>
+      <th>description</th>
+      <th>lieu</th>
+      <th>prix</th>
+      <th>categorie</th>
+      <th>heursEvenement</th>
+      <th>image</th>
+    
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let evenement of listEvents">
+      <td>{{evenement.titre}}</td>
+      <td>{{evenement.description}}</td>
+      <td>{{evenement.lieu}}</td>
+      <td>{{evenement.prix}}</td>
+      <td>{{evenement.categorie}}</td>
+      <td>{{evenement.heursEvenement}}</td>
+      <td>{{evenement.image}}</td>
+
+    </tr>
+
+    </tbody>
+  </table>
