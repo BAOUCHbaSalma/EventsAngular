@@ -16,5 +16,8 @@ export class ReservationService {
   public showReservation(id:Number):Observable<Array<Reservation>>{
     return this.http.get<Array<Reservation>>(`${this.urlApi}/reservations/${id}`)
   }
+  public addReservation(FormData:Reservation){
+    return this.http.post(`${this.urlApiUser}/reservation`,FormData)
+  }
   
 }
