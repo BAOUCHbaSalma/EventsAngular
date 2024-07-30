@@ -6,6 +6,9 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { AddreservationComponent } from './addreservation/addreservation.component';
 import { EvenementComponent } from './evenement/evenement.component';
 import { SendMessageComponent } from './send-message/send-message.component';
+import {UserComponent} from "./user/user.component";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
+import {EventFormComponent} from "./event-form/event-form.component";
 
 const routes: Routes = [
   {path:"registre",component:RegistreComponent},
@@ -13,7 +16,12 @@ const routes: Routes = [
   {path:"reservations/:id",component:ReservationComponent},
   {path:"reservation/:ide",component:AddreservationComponent},
   {path:"event",component:EvenementComponent},
-  {path:"contact",component:SendMessageComponent}
+  {path:"contact",component:SendMessageComponent},
+  {path: 'users', component: UserComponent},
+  { path: 'profile/:id', component: UserProfileComponent },
+  { path: 'event-form', component: EventFormComponent },
+  { path: 'event-form/:id', component: EventFormComponent }
+
 ];
 
 @NgModule({

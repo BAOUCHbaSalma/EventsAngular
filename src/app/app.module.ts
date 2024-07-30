@@ -12,6 +12,9 @@ import { IntercepteurService } from './service/intercepteur.service';
 import { AddreservationComponent } from './addreservation/addreservation.component';
 import { EvenementComponent } from './evenement/evenement.component';
 import { SendMessageComponent } from './send-message/send-message.component';
+import { UserComponent } from './user/user.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { EventFormComponent } from './event-form/event-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { SendMessageComponent } from './send-message/send-message.component';
     ReservationComponent,
     AddreservationComponent,
     EvenementComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    UserComponent,
+    UserProfileComponent,
+    EventFormComponent
   ],
   imports: [
     BrowserModule,
