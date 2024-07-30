@@ -16,7 +16,7 @@ export class ReservationComponent implements OnInit{
 
   ngOnInit(): void {
     this.idUser=this.route.snapshot.paramMap.get("id")
-    this.srv.showReservation(9).subscribe(value=>{
+    this.srv.showReservation(this.idUser).subscribe(value=>{
       this.reservationList=value
     })
   

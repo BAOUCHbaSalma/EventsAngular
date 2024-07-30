@@ -16,4 +16,7 @@ export class LoginService {
   public login(loginData:LoginRequest){
     return this.http.post(`${this.urlApi}/login`,loginData)
   }
+  public findIdByUsername(username:string){
+    return this.http.get(`${this.urlApi}/findi?username=${username}`)
+  }
 }
