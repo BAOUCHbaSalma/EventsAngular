@@ -5,13 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { AddreservationComponent } from './addreservation/addreservation.component';
 import { EvenementComponent } from './evenement/evenement.component';
+import { SendMessageComponent } from './send-message/send-message.component';
 
 const routes: Routes = [
   {path:"registre",component:RegistreComponent},
   {path:"login",component:LoginComponent},
   {path:"reservations/:id",component:ReservationComponent},
   {path:"reservation/:ide",component:AddreservationComponent},
-  {path:"event",component:EvenementComponent}
+  {path:"event",component:EvenementComponent},
+  {path:"contact",component:SendMessageComponent}
 ];
 
 @NgModule({

@@ -1,1 +1,17 @@
-<p>send-message works!</p>
+
+<h1>Reservation</h1>
+<form [formGroup]="messageForm" (ngSubmit)="hundelSubmit()">
+
+  
+    <label for="sujet">sujet:</label>
+    <input id="sujet" formControlName="sujet" type="text">
+  
+    <label for="message">message:</label>
+    <input id="message" formControlName="message" type="text">
+  
+    <label for="userId">userId:</label>
+    <input id="userId" formControlName="userId" type="number">
+  
+    <button  type="submit">Submit</button>
+  </form>
+
