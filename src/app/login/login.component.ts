@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../service/login.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginRequest } from '../model/events';
+import { DecodejwtService } from '../service/decodejwt.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +14,7 @@ import { LoginRequest } from '../model/events';
 })
 export class LoginComponent implements OnInit{
 
-  constructor(private srv:LoginService,private fb:FormBuilder){}
+  constructor(private srv:LoginService,private fb:FormBuilder,private srvd:DecodejwtService,private route:Router){}
   loginForm!:FormGroup
 
   ngOnInit(): void {
@@ -29,7 +33,14 @@ export class LoginComponent implements OnInit{
         console.log("login successs")
         localStorage.setItem("jwt",res.token)
       }
+       this.srvd.getIdByUsername(res.token).subscribe(
+        id=>{
+          this.route.navigateByUrl(`reservation/${id}`)
+        }
+       )
+
     })
+
   }
 
 }
