@@ -9,6 +9,8 @@ import { SendMessageComponent } from './send-message/send-message.component';
 import {UserComponent} from "./user/user.component";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {EventFormComponent} from "./event-form/event-form.component";
+import {EventUpdateComponent} from "./event-update/event-update.component";
+import {ContactListComponent} from "./contact-list/contact-list.component";
 
 const routes: Routes = [
   {path:"registre",component:RegistreComponent},
@@ -20,8 +22,9 @@ const routes: Routes = [
   {path: 'users', component: UserComponent},
   { path: 'profile/:id', component: UserProfileComponent },
   { path: 'event-form', component: EventFormComponent },
-  { path: 'event-form/:id', component: EventFormComponent }
-
+  { path: 'event-form/:id', component: EventFormComponent },
+  { path: 'event-update/:id', component: EventUpdateComponent },
+  { path: 'contacts', component: ContactListComponent },
 ];
 
 @NgModule({

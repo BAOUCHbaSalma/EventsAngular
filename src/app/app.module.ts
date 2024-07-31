@@ -15,9 +15,14 @@ import { SendMessageComponent } from './send-message/send-message.component';
 import { UserComponent } from './user/user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EventFormComponent } from './event-form/event-form.component';
+
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+
+import { EventUpdateComponent } from './event-update/event-update.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +35,9 @@ import { MatButtonModule } from '@angular/material/button';
     SendMessageComponent,
     UserComponent,
     UserProfileComponent,
-    EventFormComponent
+    EventFormComponent,
+    EventUpdateComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
