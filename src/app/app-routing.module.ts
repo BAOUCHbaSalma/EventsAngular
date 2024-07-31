@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'event-form/:id', component: EventFormComponent },
   { path: 'event-update/:id', component: EventUpdateComponent },
   { path: 'contacts', component: ContactListComponent },
+  { path: '**', redirectTo: '/event' }
 ];
 
 @NgModule({

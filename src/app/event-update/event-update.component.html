@@ -1,38 +1,35 @@
-<div class="container">
-  <h2>Update Event</h2>
-  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="titre">Title</label>
-      <input id="titre" class="form-control" formControlName="titre">
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <textarea id="description" class="form-control" formControlName="description"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="lieu">Location</label>
-      <input id="lieu" class="form-control" formControlName="lieu">
-    </div>
-    <div class="form-group">
-      <label for="dateEvenement">Event Date</label>
-      <input id="dateEvenement" type="date" class="form-control" formControlName="dateEvenement">
-    </div>
-    <div class="form-group">
-      <label for="prix">Price</label>
-      <input id="prix" type="number" class="form-control" formControlName="prix">
-    </div>
-    <div class="form-group">
-      <label for="categorie">Category</label>
-      <input id="categorie" class="form-control" formControlName="categorie">
-    </div>
-    <div class="form-group">
-      <label for="heursEvenement">Event Time</label>
-      <input id="heursEvenement" class="form-control" formControlName="heursEvenement">
-    </div>
-    <div class="form-group">
-      <label for="image">Image URL</label>
-      <input id="image" class="form-control" formControlName="image">
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid">Update Event</button>
-  </form>
-</div>
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="titre">Title</label>
+    <input id="titre" formControlName="titre" />
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input id="description" formControlName="description" />
+  </div>
+  <div>
+    <label for="lieu">Location</label>
+    <input id="lieu" formControlName="lieu" />
+  </div>
+  <div>
+    <label for="dateEvenement">Event Date</label>
+    <input id="dateEvenement" type="date" formControlName="dateEvenement" />
+  </div>
+  <div>
+    <label for="prix">Price</label>
+    <input id="prix" formControlName="prix" />
+  </div>
+  <div>
+    <label for="categorie">Category</label>
+    <input id="categorie" formControlName="categorie" />
+  </div>
+  <div>
+    <label for="heursEvenement">Event Time</label>
+    <input id="heursEvenement" formControlName="heursEvenement" />
+  </div>
+  <div>
+    <label for="image">Image URL</label>
+    <input id="image" formControlName="image" />
+  </div>
+  <button type="submit">Update Event</button>
+</form>
