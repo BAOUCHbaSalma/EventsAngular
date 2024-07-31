@@ -16,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EventFormComponent } from './event-form/event-form.component';
 import { EventUpdateComponent } from './event-update/event-update.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EventUpdateComponent } from './event-update/event-update.component';
     UserComponent,
     UserProfileComponent,
     EventFormComponent,
-    EventUpdateComponent
+    EventUpdateComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
