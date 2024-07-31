@@ -15,6 +15,9 @@ import { SendMessageComponent } from './send-message/send-message.component';
 import { UserComponent } from './user/user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EventFormComponent } from './event-form/event-form.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,11 +36,14 @@ import { EventFormComponent } from './event-form/event-form.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   providers: [
     provideClientHydration(),
     { provide: HTTP_INTERCEPTORS, useClass: IntercepteurService, multi: true },
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })
