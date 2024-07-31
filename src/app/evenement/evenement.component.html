@@ -1,42 +1,66 @@
-<form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
-  <label for="lieu">Location:</label>
-  <input id="lieu" formControlName="lieu" />
 
-  <label for="date">Event Date:</label>
-  <input id="date" type="date" formControlName="date" />
-
-  <label for="categorie">Category:</label>
-  <input id="categorie" formControlName="categorie" />
-
-  <button type="submit">Submit</button>
-</form>
+<!-- <form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
+    <label for="lieu">Location:</label>
+    <input id="lieu" formControlName="lieu" />
+  
+    <label for="date">Event Date:</label>
+    <input id="date" type="date" formControlName="date" />
+  
+    <label for="categorie">Category:</label>
+    <input id="categorie" formControlName="categorie" />
+  
+    <button type="submit">Submit</button>
+  </form>
 
 <table>
-  <thead>
-  <tr>
-    <th>titre</th>
-    <th>description</th>
-    <th>lieu</th>
-    <th>prix</th>
-    <th>categorie</th>
-    <th>heursEvenement</th>
-    <th>image</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let evenement of listEvents">
-    <td>{{evenement.titre}}</td>
-    <td>{{evenement.description}}</td>
-    <td>{{evenement.lieu}}</td>
-    <td>{{evenement.prix}}</td>
-    <td>{{evenement.categorie}}</td>
-    <td>{{evenement.heursEvenement}}</td>
-    <td>{{evenement.image}}</td>
-    <td>
-      <button (click)="onUpdate(evenement.idEvenement)">Update</button>
-      <button (click)="onDelete(evenement.idEvenement)">Delete</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
+    <thead>
+    <tr>
+      <th>titre</th>
+      <th>description</th>
+      <th>lieu</th>
+      <th>prix</th>
+      <th>categorie</th>
+      <th>heursEvenement</th>
+      <th>image</th>
+    
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let evenement of listEvents">
+      <td>{{evenement.titre}}</td>
+      <td>{{evenement.description}}</td>
+      <td>{{evenement.lieu}}</td>
+      <td>{{evenement.prix}}</td>
+      <td>{{evenement.categorie}}</td>
+      <td>{{evenement.heursEvenement}}</td>
+      <td>{{evenement.image}}</td>
+
+    </tr>
+
+    </tbody>
+  </table> -->
+
+  <div style="width: 80%; margin: auto; display: flex; justify-content: space-around;">
+    <mat-card *ngFor="let evenement of listEvents" style="width: 360px;">
+      <mat-card-header>
+        <mat-card-title>{{evenement.titre}}</mat-card-title>
+        <mat-card-subtitle>{{evenement.categorie}}</mat-card-subtitle>
+        <img src="https://img.lapresse.ca/924x615/201301/12/632664-personnage-avatar.jpg" mat-card-avatar>
+      </mat-card-header>
+      <img src="https://img.lapresse.ca/924x615/201301/12/632664-personnage-avatar.jpg" style="width: 100%;">
+      <mat-card-content>
+        <p>{{evenement.description}}</p>
+
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button>Like</button>
+        <button>Share</button>
+        <button>Reserve</button>
+      </mat-card-actions>
+      
+
+
+    </mat-card>
+  </div>
+  
