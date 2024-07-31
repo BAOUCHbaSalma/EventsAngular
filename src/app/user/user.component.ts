@@ -19,16 +19,11 @@ export class UserComponent implements OnInit {
   loadUsers(): void {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
-    }, error => {
-      console.error('Error fetching users', error);
-    });
+    })
   }
 
   deleteUser(userId: number): void {
     this.userService.deleteUser(userId).subscribe(() => {
       this.loadUsers();
-    }, error => {
-      console.error('Error deleting user', error);
-    });
-  }
+    })}
 }
