@@ -12,34 +12,37 @@
     <button type="submit">Submit</button>
   </form>
 
+
 <table>
-    <thead>
-    <tr>
-      <th>titre</th>
-      <th>description</th>
-      <th>lieu</th>
-      <th>prix</th>
-      <th>categorie</th>
-      <th>heursEvenement</th>
-      <th>image</th>
-    
-    
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let evenement of listEvents">
-      <td>{{evenement.titre}}</td>
-      <td>{{evenement.description}}</td>
-      <td>{{evenement.lieu}}</td>
-      <td>{{evenement.prix}}</td>
-      <td>{{evenement.categorie}}</td>
-      <td>{{evenement.heursEvenement}}</td>
-      <td>{{evenement.image}}</td>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Event Time</th>
+    <th>Image</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let evenement of listEvents">
+    <td>{{ evenement.titre }}</td>
+    <td>{{ evenement.description }}</td>
+    <td>{{ evenement.lieu }}</td>
+    <td>{{ evenement.prix }}</td>
+    <td>{{ evenement.categorie }}</td>
+    <td>{{ evenement.heursEvenement }}</td>
+    <td><img [src]="evenement.image" alt="{{ evenement.titre }}" /></td>
+    <td>
+      <button (click)="onUpdate(evenement.idEvenement)">Update</button>
+      <button (click)="onDelete(evenement.idEvenement)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
-    </tr>
-
-    </tbody>
-  </table> -->
 
   <div style="width: 80%; margin: auto; display: flex; justify-content: space-around;">
     <mat-card *ngFor="let evenement of listEvents" style="width: 360px;">
@@ -64,3 +67,4 @@
     </mat-card>
   </div>
   
+

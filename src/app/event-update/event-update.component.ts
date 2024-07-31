@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {Evenement} from "../model/events";
-import {EvenementService} from "../service/evenement.service";
+import { EvenementService } from '../service/evenement.service';
 
 @Component({
   selector: 'app-event-update',
@@ -10,45 +9,51 @@ import {EvenementService} from "../service/evenement.service";
   styleUrls: ['./event-update.component.css']
 })
 export class EventUpdateComponent implements OnInit {
-  updateForm!: FormGroup;
+  eventForm!: FormGroup;
   eventId!: number;
-  evenement!: Evenement;
 
   constructor(
     private fb: FormBuilder,
+    private evenementService: EvenementService,
     private route: ActivatedRoute,
-    private router: Router,
-    private evenementService: EvenementService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.eventId = +this.route.snapshot.paramMap.get('id')!;
-    this.evenementService.getEvenementById(this.eventId).subscribe((data: Evenement) => {
-      this.evenement = data;
-      this.updateForm = this.fb.group({
-        titre: [this.evenement.titre, Validators.required],
-        description: [this.evenement.description, Validators.required],
-        lieu: [this.evenement.lieu, Validators.required],
-        dateEvenement: [this.evenement.dateEvenement, Validators.required],
-        prix: [this.evenement.prix, [Validators.required, Validators.min(0)]],
-        categorie: [this.evenement.categorie, Validators.required],
-        heursEvenement: [this.evenement.heursEvenement, Validators.required],
-        image: [this.evenement.image, Validators.required]
-      });
+    this.initForm();
+    this.loadEvent();
+  }
+
+  initForm(): void {
+    this.eventForm = this.fb.group({
+      titre: ['', Validators.required],
+      description: ['', Validators.required],
+      lieu: ['', Validators.required],
+      dateEvenement: ['', Validators.required],
+      prix: ['', Validators.required],
+      categorie: ['', Validators.required],
+      heursEvenement: ['', Validators.required],
+      image: ['', Validators.required]
+    });
+  }
+
+  loadEvent(): void {
+    this.evenementService.getEvenementById(this.eventId).subscribe(event => {
+      this.eventForm.patchValue(event);
     });
   }
 
   onSubmit(): void {
-    if (this.updateForm.valid) {
-      this.evenementService.updateEvenement(this.eventId, this.updateForm.value).subscribe(
-        (response) => {
-          console.log('Event updated successfully', response);
+    if (this.eventForm.valid) {
+      this.evenementService.updateEvenement(this.eventId, this.eventForm.value).subscribe({
+        next: (res) => {
           this.router.navigate(['/events']);
         },
-        (error) => {
-          console.error('Error updating event', error);
+        error: (err) => {
+          console.error('Error updating event', err);
         }
-      );
+      });
     }
   }
 }
