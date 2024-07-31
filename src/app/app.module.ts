@@ -15,6 +15,7 @@ import { SendMessageComponent } from './send-message/send-message.component';
 import { UserComponent } from './user/user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EventFormComponent } from './event-form/event-form.component';
+import { EventUpdateComponent } from './event-update/event-update.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EventFormComponent } from './event-form/event-form.component';
     SendMessageComponent,
     UserComponent,
     UserProfileComponent,
-    EventFormComponent
+    EventFormComponent,
+    EventUpdateComponent
   ],
   imports: [
     BrowserModule,
