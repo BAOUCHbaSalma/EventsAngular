@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
   background-color: #090909;
   overflow: hidden;
 }
@@ -22,19 +21,25 @@ h2 {
 .container {
   position: relative;
   background-color: rgba(9, 9, 9, 0.6);
-  padding: 40px;
-  height: 88.8vh;
-
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 /* login */
-
+.container1{
+    width: 500px;
+    height: 100%;
+    background-color: rgba(9, 9, 9, 0.6);
+    z-index: 9999;
+}
 .login-container {
   text-align: center;
   max-width: 350px;
+  z-index: 999;
+  margin: 20px auto;
+  padding-top: 100px;
 }
 
 h2 {
@@ -73,9 +78,9 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #f00;
- background: linear-gradient(90deg, rgba(179,14,31,1) 0%, rgba(9,189,235,1) 100%);
-  z-index: -1;
+  background: rgba(9, 9, 9, 0.6);
+  background: linear-gradient(90deg, rgba(179,14,31,1) 0%, rgba(9,189,235,1) 100%);
+  z-index: 1;
   animation: lava 4s infinite linear;
   animation-direction:alternate;
 }
@@ -102,8 +107,8 @@ button {
         right top no-repeat #000;
     background-size: contain;
   }
-  .container {
-    width: 320px;
+  .body > .container {
+    width: 420px;
     box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
     overflow: hidden;
     transition-property: box-shadow;
@@ -114,7 +119,7 @@ button {
   border-style: solid;
   border-image: linear-gradient(to right, #b30e1f, #09bdeb) 1;
   }
-  .container:before {
+  .body > .container:before {
   filter: blur(10px);
-}
+  }
 }
