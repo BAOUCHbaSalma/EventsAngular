@@ -11,23 +11,22 @@
     <button  type="submit">Submit</button>
   </form>  -->
 <!-- Background -->
-<div class="body">
-
-<div class="container">
+<section class="body">
+<div class="container" id="container">
+  <div class="container1">
   <div class="login-container">
     <img style="height:120px;"  xmlns="http://www.w3.org/2000/svg" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Star_Wars_Day_May_The_Fourth.svg"/>
       <h2>Login</h2>
       <form [formGroup]="loginForm" (ngSubmit)="loginMethod()">
     
-        <label for="username">username:</label>
-        <input id="username" formControlName="username" type="text">
+        <input placeholder="username" formControlName="username" type="text">
       
-        <label for="password">password:</label>
-        <input id="password" formControlName="password" type="text">
-      
-      
+        
+        <input placeholder="password" formControlName="password" type="text">
+    
         <button  type="submit">Submit</button>
       </form> 
   </div>
 </div>
 </div>
+</section>
