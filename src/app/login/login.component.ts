@@ -27,8 +27,10 @@ export class LoginComponent implements OnInit{
     const login:LoginRequest={
       username:this.loginForm.value.username,
       password:this.loginForm.value.password,
+      
     }
     this.srv.login(login).subscribe((res:any)=>{
+     
       if(res && res.token){
         console.log("login successs")
         localStorage.setItem("jwt",res.token)
