@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EvenementService } from '../service/evenement.service';
-import { Evenement } from '../model/events';
 
 @Component({
   selector: 'app-event-form',
