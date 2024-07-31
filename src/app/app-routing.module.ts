@@ -14,6 +14,7 @@ import {ContactListComponent} from "./contact-list/contact-list.component";
 
 const routes: Routes = [
   {path:"registre",component:RegistreComponent},
+  // { path: '**', redirectTo: '/event' },
   {path:"login",component:LoginComponent},
   {path:"reservations/:id",component:ReservationComponent},
   {path:"reservation/:ide",component:AddreservationComponent},
@@ -25,7 +26,7 @@ const routes: Routes = [
   { path: 'event-form/:id', component: EventFormComponent },
   { path: 'event-update/:id', component: EventUpdateComponent },
   { path: 'contacts', component: ContactListComponent },
-  { path: '**', redirectTo: '/event' }
+  { path: '', component: EvenementComponent },
 ];
 
 @NgModule({

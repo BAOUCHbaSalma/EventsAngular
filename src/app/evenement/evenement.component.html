@@ -1,18 +1,5 @@
 
-<!-- <form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
-    <label for="lieu">Location:</label>
-    <input id="lieu" formControlName="lieu" />
-  
-    <label for="date">Event Date:</label>
-    <input id="date" type="date" formControlName="date" />
-  
-    <label for="categorie">Category:</label>
-    <input id="categorie" formControlName="categorie" />
-  
-    <button type="submit">Submit</button>
-  </form>
-
-
+<!-- 
 <table>
   <thead>
   <tr>
@@ -44,7 +31,7 @@
 </table>-->
 
 
-  <div style="width: 80%; margin: auto; display: flex; justify-content: space-around;">
+  <!-- <div style="width: 80%; margin: auto; display: flex; justify-content: space-around;">
     <mat-card *ngFor="let evenement of listEvents" style="width: 360px;">
       <mat-card-header>
         <mat-card-title>{{evenement.titre}}</mat-card-title>
@@ -66,5 +53,73 @@
 
     </mat-card>
   </div>
-  
+   -->
+
+<div class="main">
+  <div class="main-wrapper">
+      <div class="menu">
+        
+      </div>
+      <div class="hero-wrapper">
+
+        <div class="hero-top">
+          <div class="hero-top-left">
+            <img src="../../assets/images/djsalma.jpg" alt="">
+          </div>
+
+          <div class="hero-top-right">
+              <h1>You can <em>enjoy</em> with us</h1>
+              <p>take a closer look <span>View</span></p>
+          </div>
+        </div>   
+
+        <div class="hero-search">
+          <form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
+            <div class="group">
+              <label for="lieu">Location:</label>
+              <input id="lieu" formControlName="lieu" placeholder="Search by Location" />
+            </div>
+          
+            <div class="group">
+            <label for="date">Event Date:</label>
+            <input id="date" type="date" formControlName="date" placeholder=""/>
+            </div>
+
+            <div class="group">
+            <label for="categorie">Category:</label>
+            <input id="categorie" formControlName="categorie" placeholder="Search by Category" />
+            </div>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+
+        <div class="hero">
+            <h1>All Events</h1>
+          <div class="hero-card">
+              <mat-card *ngFor="let evenement of listEvents" style="width: 360px;" id="card">
+                <mat-card-header>
+                  <mat-card-title>{{evenement.titre}}</mat-card-title>
+                  <mat-card-subtitle id="categorie">{{evenement.categorie}}</mat-card-subtitle>
+                  <img src="https://img.lapresse.ca/924x615/201301/12/632664-personnage-avatar.jpg" mat-card-avatar>
+                </mat-card-header>
+                <img id="img-card" src="https://img.lapresse.ca/924x615/201301/12/632664-personnage-avatar.jpg" style="width: 100%;">
+                <mat-card-content>
+                  <p id="para">{{evenement.description}}</p>
+          
+                </mat-card-content>
+                <mat-card-actions align="end" id="btns">
+                  <button>Like</button>
+                  <button>Share</button>
+                  <button>Reserve</button>
+                </mat-card-actions>
+              </mat-card>
+          
+          </div>
+
+        </div>
+        <div class="footer"></div>
+      </div>
+  </div>
+</div>
 
