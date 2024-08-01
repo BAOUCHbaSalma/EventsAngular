@@ -31,15 +31,15 @@ export class EvenementService {
     return this.http.get<Evenement>(`${this.urlApi}/evenement/${id}`);
   }
 
-  createEvenement(evenement: Evenement): Observable<Evenement> {
+  public createEvenement(evenement: Evenement): Observable<Evenement> {
     return this.http.post<Evenement>(`${this.urlApi}/admin/evenement`, evenement);
   }
 
-  updateEvenement(id: number, evenement: Evenement): Observable<Evenement> {
-    return this.http.put<Evenement>(`${this.urlApi}/admin/evenement/update/${id}`, evenement);
+  public updateEvenement(id: number, evenement: Evenement): Observable<any> {
+    return this.http.put(`${this.urlApi}/admin/evenement/update/${id}`, evenement);
   }
 
-  deleteEvenement(id: number): Observable<void> {
+  public deleteEvenement(id: number): Observable<void> {
     return this.http.delete<void>(`${this.urlApi}/admin/evenement/${id}`);
   }
 }
