@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../service/reservation.service';
-import { FormGroup } from '@angular/forms';
 import { Reservation } from '../model/events';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
