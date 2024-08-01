@@ -19,5 +19,13 @@ export class ReservationService {
   public addReservation(FormData:Reservation){
     return this.http.post(`${this.urlApiUser}/reservation`,FormData)
   }
-  
+
+
+
+  // Get all reservations
+  public getAllReservations(): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`${this.urlApi}/admin/reservation`);
+  }
+
+
 }
