@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { EvenementService } from '../service/evenement.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import {Evenement} from "../model/events";
 
 @Component({
-  selector: 'app-evenement',
-  templateUrl: './evenement.component.html',
-  styleUrls: ['./evenement.component.css']
+  selector: 'app-show-events',
+  templateUrl: './show-events.component.html',
+  styleUrls: ['./show-events.component.css']
 })
-export class EvenementComponent implements OnInit {
-  listEvents: any;
+export class ShowEventsComponent implements OnInit {
+  listEvents:any;
   searchForm!: FormGroup;
+  displayedColumns: string[] = ['titre', 'description', 'lieu', 'prix', 'categorie', 'heursEvenement', 'image', 'actions'];
 
   constructor(private srv: EvenementService, private fb: FormBuilder, private router: Router) {}
 
@@ -29,15 +31,24 @@ export class EvenementComponent implements OnInit {
 
   loadEvents(): void {
     this.srv.showAllEvents().subscribe(value => {
-      this.listEvents = value;
+      this.listEvents = value; // Type cohérent
     });
   }
 
-  searchEvents(): void {
+  searchEvent(): void {
     const { categorie, lieu, date } = this.searchForm.value;
     this.srv.SearchEvents(lieu, categorie, date).subscribe(res => {
-      this.listEvents = res;
+      this.listEvents = res; // Type cohérent
     });
   }
 
+  onUpdate(id: number): void {
+    this.router.navigate(['/event-update', id]);
+  }
+
+  onDelete(id: number): void {
+    this.srv.deleteEvenement(id).subscribe(() => {
+      this.loadEvents();
+    });
+  }
 }
