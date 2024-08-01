@@ -19,7 +19,7 @@ export class UserService {
     return this.http.delete(`${this.baseUrl}/admin/${id}`);
   }
 
-  getUserProfile(id: number): Observable<User> {
+  getUserProfile(id: any): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/profile/${id}`);
   }
 
