@@ -27,15 +27,11 @@ const routes: Routes = [
   { path: 'event-form/:id', component: EventFormComponent },
   { path: 'event-update/:id', component: EventUpdateComponent },
   { path: 'contacts', component: ContactListComponent },
-  { path: '', component: EvenementComponent },
   {path:"show-event",component:ShowEventsComponent},
   { path: 'all-reservations', component: AllReservationsComponent },
 
 
-  //{ path: '**', redirectTo: '/show-event' },
-
-
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
