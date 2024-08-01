@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+25&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.body {
+  font-family: "Roboto", sans-serif;
+}
+.body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #090909;
+  overflow: hidden;
+}
+h2 {
+  font-family: "Jersey 25", sans-serif;
+  text-transform: uppercase;
+  font-size: 32px;
+  letter-spacing: 2.3px;
+}
+.container {
+  position: relative;
+  background-color: rgba(9, 9, 9, 0.6);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* login */
+.container1{
+    width: 500px;
+    height: 100%;
+    background-color: rgba(9, 9, 9, 0.6);
+    z-index: 9999;
+}
+.login-container {
+  text-align: center;
+  max-width: 350px;
+  z-index: 999;
+  margin: 20px auto;
+  padding-top: 100px;
+}
+
+h2 {
+  color: #f00;
+  margin-bottom: 20px;
+}
+input {
+  box-sizing: border-box;
+  min-width: 100%;
+  padding: 12px 8px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background-color: #222;
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  padding: 12px 8px;
+  border-radius: 4px;
+  border: none;
+  background-color: #f00;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+
+/* Animation for lava effect */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(9, 9, 9, 0.6);
+  background: linear-gradient(90deg, rgba(179,14,31,1) 0%, rgba(9,189,235,1) 100%);
+  z-index: 1;
+  animation: lava 4s infinite linear;
+  animation-direction:alternate;
+}
+
+@keyframes lava {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-05%);
+  }
+  100% {
+    transform: translateX(05%);
+  }
+}
+
+/* media */
+@media screen and (min-width: 426px) {
+  .body {
+    background-color: #090909;
+    background: url(https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+        left top no-repeat,
+      url(https://images.unsplash.com/photo-1558008258-3256797b43f3?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+        right top no-repeat #000;
+    background-size: contain;
+  }
+  .body > .container {
+    width: 420px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    overflow: hidden;
+    transition-property: box-shadow;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition: width 1s linear;
+    border-width: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #b30e1f, #09bdeb) 1;
+  }
+  .body > .container:before {
+  filter: blur(10px);
+  }
+}

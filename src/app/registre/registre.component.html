@@ -1,5 +1,5 @@
 
-    <h1>Sing up</h1>
+    <!-- <h1>Sing up</h1>
   <form [formGroup]="registreForm" (ngSubmit)="hundelSubmit()">
       <label for="username">username:</label>
       <input id="username" formControlName="username" type="text">
@@ -14,6 +14,24 @@
       <input id="email" formControlName="email" type="text">
     
       <button  type="submit">Submit</button>
-    </form>
+    </form> -->
 
-  
+    <section class="body">
+      <div class="container" id="container">
+        <div class="container1">
+        <div class="login-container">
+          <img style="height:120px;"  xmlns="http://www.w3.org/2000/svg" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Star_Wars_Day_May_The_Fourth.svg"/>
+            <h2>Sign up</h2>
+            <form [formGroup]="registreForm" (ngSubmit)="hundelSubmit()">
+          
+              <input placeholder="username" formControlName="username" type="text">
+              <input placeholder="password" formControlName="password" type="text">
+              <input placeholder="age" formControlName="age" type="number">
+              <input placeholder="email" formControlName="email" type="email">
+          
+              <button  type="submit">Submit</button>
+            </form> 
+        </div>
+      </div>
+      </div>
+      </section>
