@@ -1,0 +1,65 @@
+<form [formGroup]="searchForm" (ngSubmit)="searchEvent()" style="display: flex; justify-content: space-between;">
+  <mat-form-field appearance="fill" style="width: 30%;">
+    <mat-label>Location</mat-label>
+    <input matInput id="lieu" formControlName="lieu" />
+  </mat-form-field>
+  <mat-form-field appearance="fill" style="width: 30%;">
+    <mat-label>Event Date</mat-label>
+    <input matInput id="date" type="date" formControlName="date" />
+  </mat-form-field>
+  <mat-form-field appearance="fill" style="width: 30%;">
+    <mat-label>Category</mat-label>
+    <input matInput id="categorie" formControlName="categorie" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Search</button>
+</form>
+
+<table mat-table [dataSource]="listEvents" class="mat-elevation-z8" style="width: 100%;">
+  <ng-container matColumnDef="titre">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let event"> {{event.titre}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let event"> {{event.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lieu">
+    <th mat-header-cell *matHeaderCellDef> Location </th>
+    <td mat-cell *matCellDef="let event"> {{event.lieu}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prix">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let event"> {{event.prix}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="categorie">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let event"> {{event.categorie}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="heursEvenement">
+    <th mat-header-cell *matHeaderCellDef> Event Time </th>
+    <td mat-cell *matCellDef="let event"> {{event.heursEvenement}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef> Image </th>
+    <td mat-cell *matCellDef="let event">
+      <img [src]="event.image" alt="{{event.titre}}" style="width: 100px;">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let event">
+      <button (click)="onUpdate(event.idEvenement)">Update</button>
+      <button (click)="onDelete(event.idEvenement)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

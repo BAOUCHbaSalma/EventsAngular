@@ -22,6 +22,12 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { EventUpdateComponent } from './event-update/event-update.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { ShowEventsComponent } from './show-events/show-events.component';
+import {MatTable, MatTableModule} from "@angular/material/table";
+import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { AllReservationsComponent } from './all-reservations/all-reservations.component';
 
 
 @NgModule({
@@ -37,7 +43,9 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     UserProfileComponent,
     EventFormComponent,
     EventUpdateComponent,
-    ContactListComponent
+    ContactListComponent,
+    ShowEventsComponent,
+    AllReservationsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +54,15 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
+    MatTable,
+    MatFormField,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [
     provideClientHydration(),

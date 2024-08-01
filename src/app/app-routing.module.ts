@@ -11,10 +11,11 @@ import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {EventFormComponent} from "./event-form/event-form.component";
 import {EventUpdateComponent} from "./event-update/event-update.component";
 import {ContactListComponent} from "./contact-list/contact-list.component";
+import {ShowEventsComponent} from "./show-events/show-events.component";
+import {AllReservationsComponent} from "./all-reservations/all-reservations.component";
 
 const routes: Routes = [
   {path:"registre",component:RegistreComponent},
-  // { path: '**', redirectTo: '/event' },
   {path:"login",component:LoginComponent},
   {path:"reservations/:id",component:ReservationComponent},
   {path:"reservation/:ide",component:AddreservationComponent},
@@ -26,8 +27,11 @@ const routes: Routes = [
   { path: 'event-form/:id', component: EventFormComponent },
   { path: 'event-update/:id', component: EventUpdateComponent },
   { path: 'contacts', component: ContactListComponent },
- 
-];
+  {path:"show-event",component:ShowEventsComponent},
+  { path: 'all-reservations', component: AllReservationsComponent },
+
+
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
