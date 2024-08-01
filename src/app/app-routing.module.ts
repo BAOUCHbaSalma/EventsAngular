@@ -16,7 +16,7 @@ import {AllReservationsComponent} from "./all-reservations/all-reservations.comp
 
 const routes: Routes = [
   {path:"registre",component:RegistreComponent},
-  {path:"login",component:LoginComponent},
+  {path:"",component:LoginComponent},
   {path:"reservations/:id",component:ReservationComponent},
   {path:"reservation/:ide",component:AddreservationComponent},
   {path:"event",component:EvenementComponent},
