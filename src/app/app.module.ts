@@ -27,6 +27,7 @@ import {MatTable, MatTableModule} from "@angular/material/table";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { AllReservationsComponent } from './all-reservations/all-reservations.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     EventFormComponent,
     EventUpdateComponent,
     ContactListComponent,
-    ShowEventsComponent
+    ShowEventsComponent,
+    AllReservationsComponent
   ],
   imports: [
     BrowserModule,
