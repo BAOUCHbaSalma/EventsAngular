@@ -15,7 +15,7 @@ export class EvenementComponent implements OnInit {
   searchForm!: FormGroup;
   
 
-  constructor(private srv: EvenementService, private fb: FormBuilder, private router: Router,private resrv:ReservationService) {}
+  constructor(private srv: EvenementService,private fb: FormBuilder, private router: Router,private resrv:ReservationService) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -69,6 +69,8 @@ const reservation:Reservation={
     }
    
   }
+  
+
   this.resrv.addReservation(reservation).subscribe(()=>{
     alert("Reservation")
     this.ngOnInit()

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DecodejwtService } from '../service/decodejwt.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,16 @@ import { Router } from '@angular/router';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent implements OnInit{
+  idUser:any
 
-  constructor(private router : Router){}
+  constructor(private router : Router,private srv:DecodejwtService){}
+
   ngOnInit(): void {
+    const token=localStorage.getItem('jwt')
+    this.srv.getIdByUsername(token).subscribe(id=>{
+      this.idUser=id
+
+    })
 
   }
 
@@ -20,7 +28,7 @@ export class MenuComponent implements OnInit{
     this.router.navigateByUrl('');
     
   }else{
-    console.log('//:')
+    console.log('')
 
   }
 }
