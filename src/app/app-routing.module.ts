@@ -13,7 +13,6 @@ import {EventUpdateComponent} from "./event-update/event-update.component";
 import {ContactListComponent} from "./contact-list/contact-list.component";
 import {ShowEventsComponent} from "./show-events/show-events.component";
 import {AllReservationsComponent} from "./all-reservations/all-reservations.component";
-import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
 
 const routes: Routes = [
   {path:"registre",component:RegistreComponent},
@@ -30,11 +29,7 @@ const routes: Routes = [
   { path: 'contacts', component: ContactListComponent },
   {path:"show-event",component:ShowEventsComponent},
   { path: 'all-reservations', component: AllReservationsComponent },
-  { path: 'admin', component: AdminDashboardComponent}
-
-
 ]
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

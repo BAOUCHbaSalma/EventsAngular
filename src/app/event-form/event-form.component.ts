@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EvenementService } from '../service/evenement.service';
 import { Router } from '@angular/router';
-import {Evenement} from "../model/events";
+import { Evenement } from "../model/events";
 
 @Component({
   selector: 'app-event-form',
@@ -28,20 +28,18 @@ export class EventFormComponent implements OnInit {
       categorie: ['', Validators.required],
       heursEvenement: ['', Validators.required],
       image: ['', Validators.required]
-  })}
+    });
+  }
 
   onSubmit(): void {
-    const event:Evenement=this.eventForm.value;
-    console.log("lieu"+event.lieu)
-    console.log("des"+event.description)
-    console.log("prix"+event.prix)
-      this.evenementService.createEvenement(event).subscribe(
-        ()=>{
-          this.ngOnInit();
-        }
-          );
-
-    }
-
-
+    const event: Evenement = this.eventForm.value;
+    console.log("lieu" + event.lieu);
+    console.log("des" + event.description);
+    console.log("prix" + event.prix);
+    this.evenementService.createEvenement(event).subscribe(
+      () => {
+        this.router.navigate(['/show-event']);
+      }
+    );
   }
+}

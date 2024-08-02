@@ -28,12 +28,21 @@ import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AllReservationsComponent } from './all-reservations/all-reservations.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import {MatSidenav, MatSidenavContainer, MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {MatListItem, MatListModule, MatNavList} from "@angular/material/list";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import { MenuComponent } from './menu/menu.component';
+import {MatOption} from "@angular/material/autocomplete";
+import {MatSelect, MatSelectModule} from "@angular/material/select";
+import {
+  MatDatepicker,
+  MatDatepickerInput,
+  MatDatepickerModule,
+  MatDatepickerToggle
+} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+
 
 
 @NgModule({
@@ -52,8 +61,8 @@ import { MenuComponent } from './menu/menu.component';
     ContactListComponent,
     ShowEventsComponent,
     AllReservationsComponent,
-    AdminDashboardComponent,
     MenuComponent,
+
 
   ],
   imports: [
@@ -61,31 +70,21 @@ import { MenuComponent } from './menu/menu.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTable,
-    MatFormField,
-    BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
     MatTableModule,
-    MatSidenav,
-    MatSidenavContainer,
-    MatToolbar,
-    MatNavList,
-    MatListItem,
-    MatIcon,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
     MatSidenavModule,
+    MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
+
   providers: [
     provideClientHydration(),
     { provide: HTTP_INTERCEPTORS, useClass: IntercepteurService, multi: true },

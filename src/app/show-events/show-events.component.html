@@ -1,65 +1,71 @@
-<form [formGroup]="searchForm" (ngSubmit)="searchEvent()" style="display: flex; justify-content: space-between;">
-  <mat-form-field appearance="fill" style="width: 30%;">
-    <mat-label>Location</mat-label>
-    <input matInput id="lieu" formControlName="lieu" />
-  </mat-form-field>
-  <mat-form-field appearance="fill" style="width: 30%;">
-    <mat-label>Event Date</mat-label>
-    <input matInput id="date" type="date" formControlName="date" />
-  </mat-form-field>
-  <mat-form-field appearance="fill" style="width: 30%;">
-    <mat-label>Category</mat-label>
-    <input matInput id="categorie" formControlName="categorie" />
-  </mat-form-field>
-  <button mat-raised-button color="primary" type="submit">Search</button>
-</form>
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-toolbar color="primary">Admin Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item routerLink="/users">Users</mat-list-item>
+      <mat-list-item routerLink="/contacts">Contacts</mat-list-item>
+      <mat-list-item routerLink="/all-reservations">Reservations</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
 
-<table mat-table [dataSource]="listEvents" class="mat-elevation-z8" style="width: 100%;">
-  <ng-container matColumnDef="titre">
-    <th mat-header-cell *matHeaderCellDef> Title </th>
-    <td mat-cell *matCellDef="let event"> {{event.titre}} </td>
-  </ng-container>
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+    </mat-toolbar>
 
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef> Description </th>
-    <td mat-cell *matCellDef="let event"> {{event.description}} </td>
-  </ng-container>
+    <!-- Add Event Button -->
+    <div class="add-event-button">
+      <button mat-raised-button color="accent" routerLink="/event-form">Add Event</button>
+    </div>
 
-  <ng-container matColumnDef="lieu">
-    <th mat-header-cell *matHeaderCellDef> Location </th>
-    <td mat-cell *matCellDef="let event"> {{event.lieu}} </td>
-  </ng-container>
+    <!-- Search Form -->
+    <div class="search-form">
+      <form [formGroup]="searchForm" (ngSubmit)="searchEvent()" class="search-fields">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Location</mat-label>
+          <input matInput id="lieu" formControlName="lieu" />
+        </mat-form-field>
 
-  <ng-container matColumnDef="prix">
-    <th mat-header-cell *matHeaderCellDef> Price </th>
-    <td mat-cell *matCellDef="let event"> {{event.prix}} </td>
-  </ng-container>
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Event Date</mat-label>
+          <input matInput id="date" type="date" formControlName="date" />
+        </mat-form-field>
 
-  <ng-container matColumnDef="categorie">
-    <th mat-header-cell *matHeaderCellDef> Category </th>
-    <td mat-cell *matCellDef="let event"> {{event.categorie}} </td>
-  </ng-container>
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="categorie">
+            <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-  <ng-container matColumnDef="heursEvenement">
-    <th mat-header-cell *matHeaderCellDef> Event Time </th>
-    <td mat-cell *matCellDef="let event"> {{event.heursEvenement}} </td>
-  </ng-container>
+        <button mat-raised-button color="primary" type="submit">Search</button>
+      </form>
+    </div>
 
-  <ng-container matColumnDef="image">
-    <th mat-header-cell *matHeaderCellDef> Image </th>
-    <td mat-cell *matCellDef="let event">
-      <img [src]="event.image" alt="{{event.titre}}" style="width: 100px;">
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let event">
-      <button (click)="onUpdate(event.idEvenement)">Update</button>
-      <button (click)="onDelete(event.idEvenement)">Delete</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <!-- Events Cards -->
+    <div class="cards-container">
+      <mat-card *ngFor="let event of listEvents" class="event-card">
+        <img [src]="event.image" alt="{{ event.titre }}" class="event-image"/>
+        <mat-card-header>
+          <mat-card-title>{{ event.titre }}</mat-card-title>
+          <mat-card-subtitle>{{ event.dateEvenement | date }} | {{ event.heursEvenement }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Description:</strong> {{ event.description }}</p>
+          <p><strong>Location:</strong> {{ event.lieu }}</p>
+          <p><strong>Price:</strong> {{ event.prix }}</p>
+          <p><strong>Category:</strong> {{ event.categorie }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="onUpdate(event.idEvenement)">Update</button>
+          <button mat-button color="warn" (click)="onDelete(event.idEvenement)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
