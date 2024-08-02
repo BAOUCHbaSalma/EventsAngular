@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { IntercepteurService } from './service/intercepteur.service';
-import { AddreservationComponent } from './addreservation/addreservation.component';
 import { EvenementComponent } from './evenement/evenement.component';
 import { SendMessageComponent } from './send-message/send-message.component';
 import { UserComponent } from './user/user.component';
@@ -52,7 +51,6 @@ import {MatNativeDateModule} from "@angular/material/core";
     RegistreComponent,
     LoginComponent,
     ReservationComponent,
-    AddreservationComponent,
     EvenementComponent,
     SendMessageComponent,
     UserComponent,
