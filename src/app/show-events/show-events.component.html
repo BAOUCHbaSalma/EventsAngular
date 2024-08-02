@@ -30,22 +30,23 @@
           <mat-label>Location</mat-label>
           <input matInput id="lieu" formControlName="lieu" />
         </mat-form-field>
-
+    
         <mat-form-field appearance="fill" class="form-field">
           <mat-label>Event Date</mat-label>
           <input matInput id="date" type="date" formControlName="date" />
         </mat-form-field>
-
+    
         <mat-form-field appearance="fill" class="form-field">
           <mat-label>Category</mat-label>
           <mat-select formControlName="categorie">
             <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
           </mat-select>
         </mat-form-field>
-
+    
         <button mat-raised-button color="primary" type="submit">Search</button>
       </form>
     </div>
+    
 
     <!-- Events Cards -->
     <div class="cards-container">
