@@ -1,0 +1,11 @@
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin: auto;
+}
+
+mat-form-field {
+  width: 100%;
+}

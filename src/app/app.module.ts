@@ -33,6 +33,15 @@ import {MatSidenav, MatSidenavContainer, MatSidenavModule} from "@angular/materi
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {MatListItem, MatListModule, MatNavList} from "@angular/material/list";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
+import {MatOption} from "@angular/material/autocomplete";
+import {MatSelect, MatSelectModule} from "@angular/material/select";
+import {
+  MatDatepicker,
+  MatDatepickerInput,
+  MatDatepickerModule,
+  MatDatepickerToggle
+} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -58,31 +67,21 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTable,
-    MatFormField,
-    BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
     MatTableModule,
-    MatSidenav,
-    MatSidenavContainer,
-    MatToolbar,
-    MatNavList,
-    MatListItem,
-    MatIcon,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
     MatSidenavModule,
+    MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
+
   providers: [
     provideClientHydration(),
     { provide: HTTP_INTERCEPTORS, useClass: IntercepteurService, multi: true },

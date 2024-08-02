@@ -12,7 +12,7 @@ import {Evenement} from "../model/events";
 export class ShowEventsComponent implements OnInit {
   listEvents:any;
   searchForm!: FormGroup;
-  displayedColumns: string[] = ['titre', 'description', 'lieu', 'prix', 'categorie', 'heursEvenement', 'image', 'actions'];
+  displayedColumns: string[] = ['titre', 'description', 'lieu', 'prix', 'categorie', 'heursEvenement', 'dateEvenement','image', 'actions'];
 
   constructor(private srv: EvenementService, private fb: FormBuilder, private router: Router) {}
 
