@@ -1,5 +1,5 @@
 
-<!-- 
+<!--
 <table>
   <thead>
   <tr>
@@ -48,7 +48,7 @@
         <button>Share</button>
         <button>Reserve</button>
       </mat-card-actions>
-      
+
 
 
     </mat-card>
@@ -58,7 +58,7 @@
 <div class="main">
   <div class="main-wrapper">
       <div class="menu">
-        
+
       </div>
       <div class="hero-wrapper">
 
@@ -71,7 +71,7 @@
               <h1>You can <em>enjoy</em> with us</h1>
               <p>take a closer look <span>View</span></p>
           </div>
-        </div>   
+        </div>
 
         <div class="hero-search">
           <form [formGroup]="searchForm" (ngSubmit)="searchEvents()">
@@ -79,7 +79,7 @@
               <label for="lieu">Location:</label>
               <input id="lieu" formControlName="lieu" placeholder="Search by Location" />
             </div>
-          
+
             <div class="group">
             <label for="date">Event Date:</label>
             <input id="date" type="date" formControlName="date" placeholder=""/>
@@ -106,7 +106,7 @@
                 <img id="img-card" src="https://img.lapresse.ca/924x615/201301/12/632664-personnage-avatar.jpg" style="width: 100%;">
                 <mat-card-content>
                   <p id="para">{{evenement.description}}</p>
-          
+
                 </mat-card-content>
                 <mat-card-actions align="end" id="btns">
                   <button>Like</button>
@@ -114,7 +114,7 @@
                   <button>Reserve</button>
                 </mat-card-actions>
               </mat-card>
-          
+
           </div>
 
         </div>

@@ -1,0 +1,24 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-toolbar>Admin Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item routerLink="/admin/users">Manage Users</mat-list-item>
+      <mat-list-item routerLink="/admin/events">Manage Events</mat-list-item>
+      <mat-list-item routerLink="/admin/reservations">Manage Reservations</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+    </mat-toolbar>
+
+    <div class="content">
+      <!-- Main content goes here -->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

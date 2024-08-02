@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -47,23 +46,15 @@ export class EventUpdateComponent implements OnInit {
 
   onSubmit(): void {
     if (this.eventForm.valid) {
-      this.evenementService.createEvenement(this.eventForm.value).subscribe(
-        data => {
-          console.log('Event created', data);
-          this.router.navigate(['/show-event'])
-            .then(success => {
-              if (success) {
-                console.log('Navigation successful');
-              } else {
-                console.error('Navigation failed');
-              }
-            })
-
+      this.evenementService.updateEvenement(this.eventId, this.eventForm.value).subscribe(
+        (response) => {
+          console.log('Event updated successfully', response);
+          this.router.navigate(['/show-event']);
         },
-
+        (error) => {
+          console.error('Error updating event', error);
+        }
       );
     }
   }
-
-
 }

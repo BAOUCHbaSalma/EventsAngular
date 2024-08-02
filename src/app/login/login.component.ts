@@ -25,38 +25,36 @@ export class LoginComponent implements OnInit{
     password:''
    })
   }
-  loginMethod(){
-    const login:LoginRequest={
-      username:this.loginForm.value.username,
-      password:this.loginForm.value.password,
-      
+  loginMethod() {
+    const login: LoginRequest = {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password,
+
     }
-    this.srv.login(login).subscribe((res:any)=>{
-     
-      if(res && res.token){
+    this.srv.login(login).subscribe((res: any) => {
+
+      if (res && res.token) {
         console.log("login successs")
-        localStorage.setItem("jwt",res.token)
+        localStorage.setItem("jwt", res.token)
       }
-       this.srvd.getIdByUsername(res.token).subscribe(
-        id=>{
-        
-          this.srvu.getUserProfile(id).subscribe(res=>{
-           this.user=res
-           if(this.user.role==Erole.ADMIN){
+      this.srvd.getIdByUsername(res.token).subscribe(
+        id => {
 
-            this.route.navigateByUrl("show-event")
-           }else{
-            this.route.navigateByUrl(`reservations/${id}`)
+            this.srvu.getUserProfile(id).subscribe(res => {
+              this.user = res
+              if (this.user.role == Erole.ADMIN) {
 
-           }
+                this.route.navigateByUrl("show-event")
+              } else {
+                this.route.navigateByUrl(`reservations/${id}`)
+
+              }
 
 
-          })
+            })
+
         }
-       )
-
+      )
     })
+  }}
 
-  }
-
-}

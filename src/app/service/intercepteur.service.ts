@@ -12,11 +12,10 @@ export class IntercepteurService implements HttpInterceptor{
     let token = null;
     if (typeof localStorage !== 'undefined') {
       token = localStorage.getItem('jwt');
-      console.log('token11111111/////:'+token)
-      
     }
+
     console.log("//////////////////////////////:")
-    
+
     if (token) {
       const cloned = req.clone({
         setHeaders: {
@@ -24,6 +23,7 @@ export class IntercepteurService implements HttpInterceptor{
         }
       });
 console.log('token/////:'+token)
+console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
       return next.handle(cloned);
 }
  return next.handle(req);

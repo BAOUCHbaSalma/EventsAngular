@@ -28,6 +28,11 @@ import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AllReservationsComponent } from './all-reservations/all-reservations.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import {MatSidenav, MatSidenavContainer, MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
+import {MatListItem, MatListModule, MatNavList} from "@angular/material/list";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -45,7 +50,8 @@ import { AllReservationsComponent } from './all-reservations/all-reservations.co
     EventUpdateComponent,
     ContactListComponent,
     ShowEventsComponent,
-    AllReservationsComponent
+    AllReservationsComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,20 @@ import { AllReservationsComponent } from './all-reservations/all-reservations.co
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatSidenav,
+    MatSidenavContainer,
+    MatToolbar,
+    MatNavList,
+    MatListItem,
+    MatIcon,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(),
