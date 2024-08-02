@@ -105,7 +105,11 @@
                 <img id="img-card" src={{evenement.image}} style="width: 100%;">
                 <mat-card-content>
                   <p id="para">{{evenement.description}}</p>
-
+                  <div class="dates">
+                    <h4>Heurs : {{evenement.heursEvenement}} </h4>
+                    <h4>Date : {{evenement.dateEvenement}}</h4>
+                  </div>
+                  <h4>{{evenement.prix}} $</h4>
                 </mat-card-content>
                 <mat-card-actions align="end" id="btns">
                   <button>Like</button>
