@@ -14,6 +14,7 @@ export class ShowEventsComponent implements OnInit {
   searchForm!: FormGroup;
   displayedColumns: string[] = ['titre', 'description', 'lieu', 'prix', 'categorie', 'heursEvenement', 'dateEvenement', 'image', 'actions'];
   categories: string[] = ['Music', 'Sports', 'Conference'];
+
   constructor(private srv: EvenementService, private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
@@ -23,24 +24,25 @@ export class ShowEventsComponent implements OnInit {
 
   initForm() {
     this.searchForm = this.fb.group({
-      categorie: '',
-      lieu: '',
-      date: ''
+      categorie: [''],
+      lieu: [''],
+      date: ['']
     });
   }
 
   loadEvents(): void {
-    this.srv.showAllEvents().subscribe((value => {
-      this.listEvents = value;
-    }));
+    this.srv.showAllEvents().subscribe((events) => {
+      this.listEvents = events;
+    });
   }
 
   searchEvent(): void {
     const { categorie, lieu, date } = this.searchForm.value;
-    this.srv.SearchEvents(lieu, categorie, date).subscribe((res: Evenement[]) => {
-      this.listEvents = res;
+    this.srv.SearchEvents(lieu, categorie, date).subscribe((events: Evenement[]) => {
+      this.listEvents = events;
     });
   }
+
 
   onUpdate(id: number): void {
     this.router.navigate(['/event-update', id]);
