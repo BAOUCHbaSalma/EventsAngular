@@ -57,14 +57,13 @@
 
 <div class="main">
   <div class="main-wrapper">
-      <div class="menu">
-
-      </div>
+    <app-menu></app-menu>
       <div class="hero-wrapper">
+        
 
         <div class="hero-top">
           <div class="hero-top-left">
-            <img src="../../assets/images/djsalma.jpg" alt="">
+            <img src="../../assets/images/imgevent.jpg" alt="">
           </div>
 
           <div class="hero-top-right">
@@ -103,15 +102,19 @@
                   <mat-card-subtitle id="categorie">{{evenement.categorie}}</mat-card-subtitle>
                   <img src="https://img.lapresse.ca/924x615/201301/12/632664-personnage-avatar.jpg" mat-card-avatar>
                 </mat-card-header>
-                <img id="img-card" src="https://img.lapresse.ca/924x615/201301/12/632664-personnage-avatar.jpg" style="width: 100%;">
+                <img id="img-card" src={{evenement.image}} style="width: 100%;">
                 <mat-card-content>
                   <p id="para">{{evenement.description}}</p>
-
+                  <div class="dates">
+                    <h4>Heurs : {{evenement.heursEvenement}} </h4>
+                    <h4>Date : {{evenement.dateEvenement}}</h4>
+                  </div>
+                  <h4>{{evenement.prix}} $</h4>
                 </mat-card-content>
                 <mat-card-actions align="end" id="btns">
                   <button>Like</button>
                   <button>Share</button>
-                  <button>Reserve</button>
+                   <button (click)="Reserve(evenement.idEvenement)">Reserve</button> 
                 </mat-card-actions>
               </mat-card>
 
@@ -122,4 +125,6 @@
       </div>
   </div>
 </div>
+
+
 

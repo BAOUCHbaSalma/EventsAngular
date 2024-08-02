@@ -24,31 +24,39 @@
     </tbody>
   </table> -->
   
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
   
-    <!-- Position Column -->
-    <ng-container matColumnDef="Date reservation">
-      <th mat-header-cell *matHeaderCellDef> Date reservation </th>
-      <td mat-cell *matCellDef="let element"> {{element.dateReservation}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="Heurs reservation">
-      <th mat-header-cell *matHeaderCellDef> Heurs reservation </th>
-      <td mat-cell *matCellDef="let element"> {{element.heursReservation}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="id evenement">
-      <th mat-header-cell *matHeaderCellDef> id evenement </th>
-      <td mat-cell *matCellDef="let element"> {{element.evenement.idEvenement}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
-  
+
+<div class="main">
+  <div class="main-wrapper">
+    <app-menu></app-menu>
+    <div class="hero">
+      <h5>Your Reservations </h5>
+      <div class="hero-warpper">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+ 
+          <ng-container matColumnDef="Date reservation">
+            <th mat-header-cell *matHeaderCellDef> Date reservation </th>
+            <td mat-cell *matCellDef="let element"> {{element.dateReservation}} </td>
+          </ng-container>
+        
+         
+          <ng-container matColumnDef="Heurs reservation">
+            <th mat-header-cell *matHeaderCellDef> Heurs reservation </th>
+            <td mat-cell *matCellDef="let element"> {{element.heursReservation}} </td>
+          </ng-container>
+        
+          
+          <ng-container matColumnDef="id evenement">
+            <th mat-header-cell *matHeaderCellDef> id evenement </th>
+            <td mat-cell *matCellDef="let element"> {{element.evenement.idEvenement}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

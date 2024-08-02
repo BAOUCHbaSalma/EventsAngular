@@ -20,12 +20,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
-// Components
+
 import { AppComponent } from './app.component';
 import { RegistreComponent } from './registre/registre.component';
 import { LoginComponent } from './login/login.component';
 import { ReservationComponent } from './reservation/reservation.component';
+
 import { AddreservationComponent } from './addreservation/addreservation.component';
+
+import { IntercepteurService } from './service/intercepteur.service';
+
 import { EvenementComponent } from './evenement/evenement.component';
 import { SendMessageComponent } from './send-message/send-message.component';
 import { UserComponent } from './user/user.component';
@@ -36,8 +40,26 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { ShowEventsComponent } from './show-events/show-events.component';
 import { AllReservationsComponent } from './all-reservations/all-reservations.component';
 
+import {MatSidenav, MatSidenavContainer, MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
+import {MatListItem, MatListModule, MatNavList} from "@angular/material/list";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
+import { MenuComponent } from './menu/menu.component';
+import {MatOption} from "@angular/material/autocomplete";
+import {MatSelect, MatSelectModule} from "@angular/material/select";
+import {
+  MatDatepicker,
+  MatDatepickerInput,
+  MatDatepickerModule,
+  MatDatepickerToggle
+} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+
+
 // Services
 import { IntercepteurService } from './service/intercepteur.service';
+
+
 
 @NgModule({
   declarations: [
@@ -45,7 +67,6 @@ import { IntercepteurService } from './service/intercepteur.service';
     RegistreComponent,
     LoginComponent,
     ReservationComponent,
-    AddreservationComponent,
     EvenementComponent,
     SendMessageComponent,
     UserComponent,
@@ -54,7 +75,12 @@ import { IntercepteurService } from './service/intercepteur.service';
     EventUpdateComponent,
     ContactListComponent,
     ShowEventsComponent,
-    AllReservationsComponent
+
+    AllReservationsComponent,
+    MenuComponent,
+  
+
+
   ],
   imports: [
     BrowserModule,
