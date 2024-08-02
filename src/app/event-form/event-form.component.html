@@ -1,58 +1,90 @@
-<form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="event-form">
-  <mat-form-field appearance="fill">
-    <mat-label>Title</mat-label>
-    <input matInput id="titre" formControlName="titre" />
-    <mat-error *ngIf="eventForm.get('titre')?.hasError('required')">Title is required</mat-error>
-  </mat-form-field>
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-toolbar color="primary">Admin Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item routerLink="/show-event">Events</mat-list-item>
+      <mat-list-item routerLink="/users">Users</mat-list-item>
+      <mat-list-item routerLink="/contacts">Contacts</mat-list-item>
+      <mat-list-item routerLink="/all-reservations">Reservations</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Description</mat-label>
-    <textarea matInput id="description" formControlName="description"></textarea>
-    <mat-error *ngIf="eventForm.get('description')?.hasError('required')">Description is required</mat-error>
-  </mat-form-field>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+    </mat-toolbar>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Location</mat-label>
-    <input matInput id="lieu" formControlName="lieu" />
-    <mat-error *ngIf="eventForm.get('lieu')?.hasError('required')">Location is required</mat-error>
-  </mat-form-field>
+    <div class="dashboard-content">
+      <div class="form-container">
+        <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="event-form">
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Title</mat-label>
+              <input matInput id="titre" formControlName="titre" />
+              <mat-error *ngIf="eventForm.get('titre')?.hasError('required')">Title is required</mat-error>
+            </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Event Date</mat-label>
-    <input matInput id="dateEvenement" [matDatepicker]="picker" formControlName="dateEvenement" />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-    <mat-error *ngIf="eventForm.get('dateEvenement')?.hasError('required')">Event Date is required</mat-error>
-  </mat-form-field>
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Category</mat-label>
+              <mat-select id="categorie" formControlName="categorie">
+                <mat-option value="music">Music</mat-option>
+                <mat-option value="sports">Sports</mat-option>
+                <mat-option value="conference">Conference</mat-option>
+              </mat-select>
+              <mat-error *ngIf="eventForm.get('categorie')?.hasError('required')">Category is required</mat-error>
+            </mat-form-field>
+          </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Price</mat-label>
-    <input matInput id="prix" type="number" formControlName="prix" />
-    <mat-error *ngIf="eventForm.get('prix')?.hasError('required')">Price is required</mat-error>
-    <mat-error *ngIf="eventForm.get('prix')?.hasError('min')">Price must be a positive number</mat-error>
-  </mat-form-field>
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Location</mat-label>
+              <input matInput id="lieu" formControlName="lieu" />
+              <mat-error *ngIf="eventForm.get('lieu')?.hasError('required')">Location is required</mat-error>
+            </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Category</mat-label>
-    <mat-select id="categorie" formControlName="categorie">
-      <mat-option value="music">Music</mat-option>
-      <mat-option value="sports">Sports</mat-option>
-      <mat-option value="conference">Conference</mat-option>
-    </mat-select>
-    <mat-error *ngIf="eventForm.get('categorie')?.hasError('required')">Category is required</mat-error>
-  </mat-form-field>
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Event Date</mat-label>
+              <input matInput id="dateEvenement" [matDatepicker]="picker" formControlName="dateEvenement" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="eventForm.get('dateEvenement')?.hasError('required')">Event Date is required</mat-error>
+            </mat-form-field>
+          </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Event Time</mat-label>
-    <input matInput id="heursEvenement" type="time" formControlName="heursEvenement" />
-    <mat-error *ngIf="eventForm.get('heursEvenement')?.hasError('required')">Event Time is required</mat-error>
-  </mat-form-field>
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Event Time</mat-label>
+              <input matInput id="heursEvenement" type="time" formControlName="heursEvenement" />
+              <mat-error *ngIf="eventForm.get('heursEvenement')?.hasError('required')">Event Time is required</mat-error>
+            </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Image URL</mat-label>
-    <input matInput id="image" formControlName="image" />
-    <mat-error *ngIf="eventForm.get('image')?.hasError('required')">Image URL is required</mat-error>
-  </mat-form-field>
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Price</mat-label>
+              <input matInput id="prix" type="number" formControlName="prix" />
+              <mat-error *ngIf="eventForm.get('prix')?.hasError('required')">Price is required</mat-error>
+              <mat-error *ngIf="eventForm.get('prix')?.hasError('min')">Price must be a positive number</mat-error>
+            </mat-form-field>
+          </div>
 
-  <button mat-raised-button color="primary" type="submit">Submit</button>
-</form>
+          <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput id="description" formControlName="description"></textarea>
+            <mat-error *ngIf="eventForm.get('description')?.hasError('required')">Description is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Image URL</mat-label>
+            <input matInput id="image" formControlName="image" />
+            <mat-error *ngIf="eventForm.get('image')?.hasError('required')">Image URL is required</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

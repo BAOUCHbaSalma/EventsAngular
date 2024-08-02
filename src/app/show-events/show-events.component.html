@@ -3,13 +3,14 @@
   <mat-sidenav #sidenav mode="side" opened>
     <mat-toolbar color="primary">Admin Menu</mat-toolbar>
     <mat-nav-list>
+      <mat-list-item routerLink="/show-event">Events</mat-list-item>
       <mat-list-item routerLink="/users">Users</mat-list-item>
       <mat-list-item routerLink="/contacts">Contacts</mat-list-item>
       <mat-list-item routerLink="/all-reservations">Reservations</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 
-  <!-- Main content -->
+
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button mat-icon-button (click)="sidenav.toggle()">
@@ -18,10 +19,9 @@
       <span>Admin Dashboard</span>
     </mat-toolbar>
 
-    <!-- Add Event Button -->
-    <div class="add-event-button">
-      <button mat-raised-button color="accent" routerLink="/event-form">Add Event</button>
-    </div>
+   <div class="ssss" style="display: flex; flex-direction: row">
+
+
 
     <!-- Search Form -->
     <div class="search-form">
@@ -46,6 +46,10 @@
         <button mat-raised-button color="primary" type="submit">Search</button>
       </form>
     </div>
+     <div class="add-event-button">
+       <button mat-raised-button color="accent" routerLink="/event-form">Add Event</button>
+     </div>
+   </div>
 
     <!-- Events Cards -->
     <div class="cards-container">

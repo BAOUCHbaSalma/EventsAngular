@@ -19,11 +19,12 @@ export class UserComponent implements OnInit {
   loadUsers(): void {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
-    })
+    });
   }
 
   deleteUser(userId: number): void {
     this.userService.deleteUser(userId).subscribe(() => {
       this.loadUsers();
-    })}
+    });
+  }
 }

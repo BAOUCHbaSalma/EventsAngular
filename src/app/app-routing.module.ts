@@ -15,20 +15,19 @@ import {ShowEventsComponent} from "./show-events/show-events.component";
 import {AllReservationsComponent} from "./all-reservations/all-reservations.component";
 
 const routes: Routes = [
-  {path:"registre",component:RegistreComponent},
-  {path:"",component:LoginComponent},
-  {path:"reservations/:id",component:ReservationComponent},
-  {path:"reservation/:ide",component:AddreservationComponent},
-  {path:"event",component:EvenementComponent},
-  {path:"contact",component:SendMessageComponent},
-  {path: 'users', component: UserComponent},
-  { path: 'profile/:id', component: UserProfileComponent },
-  { path: 'event-form', component: EventFormComponent },
-  { path: 'event-form/:id', component: EventFormComponent },
-  { path: 'event-update/:id', component: EventUpdateComponent },
-  { path: 'contacts', component: ContactListComponent },
-  {path:"show-event",component:ShowEventsComponent},
-  { path: 'all-reservations', component: AllReservationsComponent },
+  { path:"registre",component:RegistreComponent},
+  { path:"",component:LoginComponent},
+  { path:"reservations/:id",component:ReservationComponent},
+  { path:"reservation/:ide",component:AddreservationComponent},
+  { path:"event", component:EvenementComponent},
+  { path:"contact", component:SendMessageComponent},
+  { path:'users', component: UserComponent},
+  { path:'profile/:id', component: UserProfileComponent },
+  { path:'event-form', component: EventFormComponent },
+  { path:'event-update/:id', component: EventUpdateComponent },
+  { path:'contacts', component: ContactListComponent },
+  { path:"show-event",component:ShowEventsComponent},
+  { path:'all-reservations', component: AllReservationsComponent },
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

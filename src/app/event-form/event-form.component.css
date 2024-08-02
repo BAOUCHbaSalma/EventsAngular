@@ -1,11 +1,31 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.dashboard-content {
+  padding: 20px;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .event-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  max-width: 600px;
-  margin: auto;
+  gap: 20px;
 }
 
-mat-form-field {
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-field {
+  flex: 1;
+}
+
+.mat-form-field {
   width: 100%;
 }
