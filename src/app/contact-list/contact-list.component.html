@@ -1,20 +1,38 @@
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Sujet</th>
-    <th>Message</th>
-    <th>User ID</th>
-    <th>Username</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let contact of contacts">
-    <td>{{ contact.idContact }}</td>
-    <td>{{ contact.sujet }}</td>
-    <td>{{ contact.message }}</td>
-    <td>{{ contact.user.userId }}</td>
-    <td>{{ contact.user.username }}</td>
-  </tr>
-  </tbody>
-</table>
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-toolbar color="primary">Admin Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item routerLink="/show-event">Events</mat-list-item>
+      <a mat-list-item routerLink="/users">Users</a>
+      <a mat-list-item routerLink="/contacts">Contacts</a>
+      <a mat-list-item routerLink="/all-reservations">Reservations</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+    </mat-toolbar>
+
+    <div class="dashboard-content">
+      <!-- Contacts List -->
+      <div class="contacts-list-container">
+        <h2>Contact Messages</h2>
+        <mat-card *ngFor="let contact of contacts" class="contact-card">
+          <mat-card-header>
+            <mat-card-title>{{ contact.sujet }}</mat-card-title>
+            <mat-card-subtitle>From: {{ contact.user.username }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ contact.message }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

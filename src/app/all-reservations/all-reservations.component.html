@@ -1,21 +1,58 @@
-<h2>All Reservations</h2>
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Event</th>
-    <th>User</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let reservation of reservations">
-    <td>{{ reservation.idReservetion }}</td>
-    <td>{{ reservation.dateReservation }}</td>
-    <td>{{ reservation.heursReservation }}</td>
-    <td>{{ reservation.evenement.titre }}</td>
-    <td>{{ reservation.user.username }}</td>
-  </tr>
-  </tbody>
-</table>
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-toolbar color="primary">Admin Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item routerLink="/show-event">Events</mat-list-item>
+      <a mat-list-item routerLink="/users">Users</a>
+      <a mat-list-item routerLink="/contacts">Contacts</a>
+      <a mat-list-item routerLink="/all-reservations">Reservations</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+    </mat-toolbar>
+
+    <div class="dashboard-content">
+      <!-- Reservations List -->
+      <div class="reservations-list-container">
+        <h2>All Reservations</h2>
+        <mat-table [dataSource]="reservations" class="mat-elevation-z8">
+          <ng-container matColumnDef="idReservetion">
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let reservation"> {{ reservation.idReservetion }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="dateReservation">
+            <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+            <mat-cell *matCellDef="let reservation"> {{ reservation.dateReservation | date }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="heursReservation">
+            <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+            <mat-cell *matCellDef="let reservation"> {{ reservation.heursReservation }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="evenement">
+            <mat-header-cell *matHeaderCellDef> Event </mat-header-cell>
+            <mat-cell *matCellDef="let reservation"> {{ reservation.evenement.titre }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="user">
+            <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
+            <mat-cell *matCellDef="let reservation"> {{ reservation.user.username }} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
