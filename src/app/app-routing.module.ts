@@ -31,10 +31,7 @@ const routes: Routes = [
   {path:"show-event",component:ShowEventsComponent},
   { path: 'all-reservations', component: AllReservationsComponent },
   { path: 'admin', component: AdminDashboardComponent}
-
-
 ]
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
