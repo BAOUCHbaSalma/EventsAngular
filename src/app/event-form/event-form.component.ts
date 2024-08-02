@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EvenementService } from '../service/evenement.service';
 import { Router } from '@angular/router';
+import {Evenement} from "../model/events";
 
 @Component({
   selector: 'app-event-form',
@@ -9,13 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./event-form.component.css']
 })
 export class EventFormComponent implements OnInit {
-  eventForm: FormGroup;
+  eventForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private evenementService: EvenementService,
     private router: Router
-  ) {
+  ){}
+
+  ngOnInit(): void {
     this.eventForm = this.fb.group({
       titre: ['', Validators.required],
       description: ['', Validators.required],
@@ -25,33 +28,20 @@ export class EventFormComponent implements OnInit {
       categorie: ['', Validators.required],
       heursEvenement: ['', Validators.required],
       image: ['', Validators.required]
-    });
-  }
-
-  ngOnInit(): void {}
+  })}
 
   onSubmit(): void {
-    if (this.eventForm.valid) {
-      this.evenementService.createEvenement(this.eventForm.value).subscribe(
-        data => {
-          console.log('Event created', data);
-          this.router.navigate(['/show-event']).then(success => {
-            if (success) {
-              console.log('Navigation successful');
-            } else {
-              console.error('Navigation failed');
-            }
-          }).catch(error => {
-            console.error('Navigation error', error);
-          });
-        },
-        error => {
-          console.error('Error creating event', error);
-          alert('Failed to create event: ' + error.message);
+    const event:Evenement=this.eventForm.value;
+    console.log("lieu"+event.lieu)
+    console.log("des"+event.description)
+    console.log("prix"+event.prix)
+      this.evenementService.createEvenement(event).subscribe(
+        ()=>{
+          this.ngOnInit();
         }
-      );
+          );
+
     }
+
+
   }
-
-
-}

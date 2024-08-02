@@ -31,8 +31,8 @@ export class EvenementService {
     return this.http.get<Evenement>(`${this.urlApi}/evenement/${id}`);
   }
 
-  public createEvenement(evenement: Evenement): Observable<Evenement> {
-    return this.http.post<Evenement>(`${this.urlApi}/admin/evenement`, evenement);
+  public createEvenement(evenement: Evenement){
+    return this.http.post(`${this.urlApi}/admin/evenement`, evenement);
   }
 
   public updateEvenement(id: number, evenement: Evenement): Observable<any> {

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit{
       }
       this.srvd.getIdByUsername(res.token).subscribe(
         id => {
-          
+
             this.srvu.getUserProfile(id).subscribe(res => {
               this.user = res
               if (this.user.role == Erole.ADMIN) {
