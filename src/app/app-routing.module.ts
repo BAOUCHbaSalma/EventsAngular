@@ -17,7 +17,7 @@ import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.compone
 
 const routes: Routes = [
   {path:"registre",component:RegistreComponent},
-  {path:"login",component:LoginComponent},
+  {path:"",component:LoginComponent},
   {path:"reservations/:id",component:ReservationComponent},
   {path:"reservation/:ide",component:AddreservationComponent},
   {path:"event",component:EvenementComponent},
@@ -28,16 +28,12 @@ const routes: Routes = [
   { path: 'event-form/:id', component: EventFormComponent },
   { path: 'event-update/:id', component: EventUpdateComponent },
   { path: 'contacts', component: ContactListComponent },
-  { path: '', component: EvenementComponent },
   {path:"show-event",component:ShowEventsComponent},
   { path: 'all-reservations', component: AllReservationsComponent },
   { path: 'admin', component: AdminDashboardComponent}
 
 
-  //{ path: '**', redirectTo: '/show-event' },
-
-
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

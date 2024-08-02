@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../service/login.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { LoginRequest } from '../model/events';
+import { Erole, LoginRequest, User } from '../model/events';
 import { DecodejwtService } from '../service/decodejwt.service';
 import { Router } from '@angular/router';
+import { UserService } from '../service/user.service';
 
 
 
@@ -14,8 +15,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit{
 
-  constructor(private srv:LoginService,private fb:FormBuilder,private srvd:DecodejwtService,private route:Router){}
+  constructor(private srv:LoginService,private fb:FormBuilder,private srvd:DecodejwtService,private route:Router,private srvu:UserService){}
   loginForm!:FormGroup
+  user!:User
 
   ngOnInit(): void {
    this.loginForm=this.fb.group({
@@ -23,24 +25,36 @@ export class LoginComponent implements OnInit{
     password:''
    })
   }
-  loginMethod(){
-    const login:LoginRequest={
-      username:this.loginForm.value.username,
-      password:this.loginForm.value.password,
+  loginMethod() {
+    const login: LoginRequest = {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password,
 
     }
-    this.srv.login(login).subscribe((res:any)=>{
+    this.srv.login(login).subscribe((res: any) => {
 
-      if(res && res.token){
+      if (res && res.token) {
         console.log("login successs")
-        localStorage.setItem("jwt",res.token)
+        localStorage.setItem("jwt", res.token)
       }
-       this.srvd.getIdByUsername(res.token).subscribe(
-        id=>{
-          console.log("id///////:"+{id})
-          this.route.navigateByUrl(`reservations/${id}`)
+      this.srvd.getIdByUsername(res.token).subscribe(
+        id => {
+          
+            this.srvu.getUserProfile(id).subscribe(res => {
+              this.user = res
+              if (this.user.role == Erole.ADMIN) {
+
+                this.route.navigateByUrl("show-event")
+              } else {
+                this.route.navigateByUrl(`reservations/${id}`)
+
+              }
+
+
+            })
+
         }
-       )
+      )
     })
-  }
-}
+  }}
+
