@@ -33,6 +33,7 @@ import {MatSidenav, MatSidenavContainer, MatSidenavModule} from "@angular/materi
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {MatListItem, MatListModule, MatNavList} from "@angular/material/list";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -51,7 +52,9 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
     ContactListComponent,
     ShowEventsComponent,
     AllReservationsComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    MenuComponent,
+
   ],
   imports: [
     BrowserModule,
