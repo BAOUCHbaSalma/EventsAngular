@@ -1,0 +1,73 @@
+
+/* menu */
+.menu{
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #2222224f;
+}
+.logo{
+    width: 50%;
+    padding: 20px 10px;
+    margin: 0 auto;
+}
+.logo > img {
+    width: 90%;
+    margin: 0 auto;
+}
+.username > h1{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.menu-link{
+    width: 70%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+.menu-link > a , .logout > a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 20px 15px;
+    text-align: left;
+    margin: 4px;
+    background:#031352 ;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    text-align: left;
+    /* border: 2px solid var(--color-bleuvoilet); */
+    border-radius: 10px;
+    font-weight: 800;
+    transition: .4s;
+    box-shadow: 4px 4px 15px #00000041;
+    border: 1px solid transparent;
+}
+.menu-link > a:hover  , #a1{
+    background:rgba(0, 0, 0, 0.795) ;
+    backdrop-filter: blur(10px);
+    border: 1px solid grey;
+}
+.logout > a:hover{
+    background:rgba(0, 0, 0, 0.795) ;
+    backdrop-filter: blur(10px);
+    border: 1px solid grey;
+}
+.menu-link > a > img ,  .logout > a > img{
+    width: 20px;
+    margin-right: 20px;
+}
+
+.logout{
+    width: 70%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+}

@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit{
 
                 this.route.navigateByUrl("show-event")
               } else {
-                this.route.navigateByUrl(`reservations/${id}`)
+                this.route.navigateByUrl("event")
 
               }
 

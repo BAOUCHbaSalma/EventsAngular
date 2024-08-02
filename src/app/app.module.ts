@@ -32,6 +32,7 @@ import {MatSidenav, MatSidenavContainer, MatSidenavModule} from "@angular/materi
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {MatListItem, MatListModule, MatNavList} from "@angular/material/list";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
+import { MenuComponent } from './menu/menu.component';
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect, MatSelectModule} from "@angular/material/select";
 import {
@@ -41,6 +42,8 @@ import {
   MatDatepickerToggle
 } from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+
+
 
 
 @NgModule({
@@ -59,6 +62,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     ContactListComponent,
     ShowEventsComponent,
     AllReservationsComponent,
+    MenuComponent,
+  
+
 
   ],
   imports: [

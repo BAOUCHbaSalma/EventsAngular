@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class EvenementComponent implements OnInit {
   listEvents: any;
   searchForm!: FormGroup;
+  
 
   constructor(private srv: EvenementService, private fb: FormBuilder, private router: Router) {}
 
@@ -39,5 +40,10 @@ export class EvenementComponent implements OnInit {
       this.listEvents = res;
     });
   }
+  Reserve(id:Number){
+
+  }
+
+  
 
 }

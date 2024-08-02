@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:"reservations/:id",component:ReservationComponent},
   {path:"reservation/:ide",component:AddreservationComponent},
   {path:"event",component:EvenementComponent},
-  {path:"contact",component:SendMessageComponent},
+  {path:"Apropos",component:SendMessageComponent},
   {path: 'users', component: UserComponent},
   { path: 'profile/:id', component: UserProfileComponent },
   { path: 'event-form', component: EventFormComponent },
