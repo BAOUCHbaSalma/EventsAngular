@@ -33,9 +33,6 @@ export class EventFormComponent implements OnInit {
 
   onSubmit(): void {
     const event: Evenement = this.eventForm.value;
-    console.log("lieu" + event.lieu);
-    console.log("des" + event.description);
-    console.log("prix" + event.prix);
     this.evenementService.createEvenement(event).subscribe(
       () => {
         this.router.navigate(['/show-event']);

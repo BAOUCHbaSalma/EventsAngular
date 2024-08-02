@@ -14,6 +14,8 @@ import {ShowEventsComponent} from "./show-events/show-events.component";
 import {AllReservationsComponent} from "./all-reservations/all-reservations.component";
 
 const routes: Routes = [
+
+ 
   {path:"registre",component:RegistreComponent},
   {path:"",component:LoginComponent},
   {path:"reservations/:id",component:ReservationComponent},
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'contacts', component: ContactListComponent },
   {path:"show-event",component:ShowEventsComponent},
   { path: 'all-reservations', component: AllReservationsComponent },
+
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

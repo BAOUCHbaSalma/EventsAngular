@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../service/contact.service';
-import {Contact} from "../model/events";
+import { Contact } from '../model/events';
 
 @Component({
   selector: 'app-contact-list',
@@ -9,6 +9,7 @@ import {Contact} from "../model/events";
 })
 export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
+  displayedColumns: string[] = ['idContact', 'sujet', 'message', 'user', 'username'];
 
   constructor(private contactService: ContactService) { }
 
@@ -17,8 +18,13 @@ export class ContactListComponent implements OnInit {
   }
 
   loadContacts(): void {
-    this.contactService.getAllContacts().subscribe(data => {
-      this.contacts = data;
+    this.contactService.getAllContacts().subscribe({
+      next: (data) => {
+        this.contacts = data;
+      },
+      error: (err) => {
+        console.error('Error loading contacts', err);
+      }
     });
   }
 }

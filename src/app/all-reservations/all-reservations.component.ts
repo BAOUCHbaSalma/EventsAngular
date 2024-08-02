@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ReservationService } from '../service/reservation.service';  // Assurez-vous que le chemin est correct
-import { Reservation } from '../model/events';  // Assurez-vous que le chemin est correct
+import { ReservationService } from '../service/reservation.service';
+import { Reservation } from '../model/events';
 
 @Component({
   selector: 'app-all-reservations',
@@ -9,6 +9,7 @@ import { Reservation } from '../model/events';  // Assurez-vous que le chemin es
 })
 export class AllReservationsComponent implements OnInit {
   reservations: Reservation[] = [];
+  displayedColumns: string[] = ['idReservetion', 'dateReservation', 'heursReservation', 'evenement', 'user'];
 
   constructor(private reservationService: ReservationService) { }
 

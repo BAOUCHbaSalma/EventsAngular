@@ -1,0 +1,18 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.dashboard-content {
+  padding: 20px;
+}
+
+.contacts-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-card {
+  padding: 16px;
+  margin: 8px 0;
+}
