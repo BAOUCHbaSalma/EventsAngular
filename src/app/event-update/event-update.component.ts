@@ -11,6 +11,7 @@ import { EvenementService } from '../service/evenement.service';
 export class EventUpdateComponent implements OnInit {
   eventForm!: FormGroup;
   eventId!: number;
+  categories: string[] = ['Music', 'Sports', 'Conference', 'Theater', 'Festival'];
 
   constructor(
     private fb: FormBuilder,
