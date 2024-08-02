@@ -123,3 +123,12 @@ button {
   filter: blur(10px);
   }
 }
+
+form > h5{
+    color: grey;
+    font-size: 13px;
+}
+
+form > h5 > a {
+    color: #f00;
+}

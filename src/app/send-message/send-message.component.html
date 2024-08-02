@@ -1,20 +1,3 @@
-
-<!-- <form [formGroup]="messageForm" (ngSubmit)="hundelSubmit()">
-
-  
-    <label for="sujet">sujet:</label>
-    <input id="sujet" formControlName="sujet" type="text">
-  
-    <label for="message">message:</label>
-    <input id="message" formControlName="message" type="text">
-  
-    <label for="userId">userId:</label>
-    <input id="userId" formControlName="userId" type="number">
-  
-    <button  type="submit">Submit</button>
-  </form>
- -->
-
  <div class="main">
   <div class="main-wrapper">
     <app-menu></app-menu>
@@ -22,6 +5,20 @@
         <div class="hero-main-top">
           <h2>ENJOY WITH OUR EVENTS</h2>
           <p>All Event on The World </p>
+        </div>
+
+        <div class="hero-main">
+          <form [formGroup]="messageForm" (ngSubmit)="hundelSubmit()">
+
+            <label for="sujet">Subject:</label><br>
+            <input id="sujet" formControlName="sujet" type="text" placeholder="Write Subject "><br>
+          
+            <label for="message">Message:</label><br>
+            <input id="message" formControlName="message" type="text" placeholder="write Message "><br>
+          
+            <input formControlName="userId" type="hidden"><br>
+            <button  type="submit">Submit</button>
+          </form>
         </div>
     </div>
   </div>

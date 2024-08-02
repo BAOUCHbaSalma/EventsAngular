@@ -196,3 +196,15 @@ em{
     width: 100%;
     margin: 20px 0 ;
 }
+.dates{
+    padding: 5px;
+}
+.dates > h4{
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+    border-bottom: 1px solid grey;
+}
+.mat-card-content > h4{
+    color: grey;
+}
