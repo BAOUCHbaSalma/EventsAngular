@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EvenementService } from '../service/evenement.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Evenement} from "../model/events";
+import { Evenement } from '../model/events';
+import { EvenementService } from '../service/evenement.service';
 
 @Component({
   selector: 'app-show-events',
@@ -10,10 +10,10 @@ import {Evenement} from "../model/events";
   styleUrls: ['./show-events.component.css']
 })
 export class ShowEventsComponent implements OnInit {
-  listEvents:any;
+  listEvents: any;
   searchForm!: FormGroup;
-  displayedColumns: string[] = ['titre', 'description', 'lieu', 'prix', 'categorie', 'heursEvenement', 'dateEvenement','image', 'actions'];
-
+  displayedColumns: string[] = ['titre', 'description', 'lieu', 'prix', 'categorie', 'heursEvenement', 'dateEvenement', 'image', 'actions'];
+  categories: string[] = ['Music', 'Sports', 'Conference'];
   constructor(private srv: EvenementService, private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
@@ -30,15 +30,15 @@ export class ShowEventsComponent implements OnInit {
   }
 
   loadEvents(): void {
-    this.srv.showAllEvents().subscribe(value => {
-      this.listEvents = value; // Type cohérent
-    });
+    this.srv.showAllEvents().subscribe((value => {
+      this.listEvents = value;
+    }));
   }
 
   searchEvent(): void {
     const { categorie, lieu, date } = this.searchForm.value;
-    this.srv.SearchEvents(lieu, categorie, date).subscribe(res => {
-      this.listEvents = res; // Type cohérent
+    this.srv.SearchEvents(lieu, categorie, date).subscribe((res: Evenement[]) => {
+      this.listEvents = res;
     });
   }
 

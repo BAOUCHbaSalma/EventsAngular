@@ -28,7 +28,6 @@ import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AllReservationsComponent } from './all-reservations/all-reservations.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import {MatSidenav, MatSidenavContainer, MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {MatListItem, MatListModule, MatNavList} from "@angular/material/list";
@@ -60,7 +59,7 @@ import {MatNativeDateModule} from "@angular/material/core";
     ContactListComponent,
     ShowEventsComponent,
     AllReservationsComponent,
-    AdminDashboardComponent
+
   ],
   imports: [
     BrowserModule,

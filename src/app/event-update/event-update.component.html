@@ -1,38 +1,78 @@
-<div class="container">
-  <h2>Update Event</h2>
-  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="titre">Title</label>
-      <input id="titre" formControlName="titre" type="text" />
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-toolbar>Admin Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item routerLink="/users">Users</mat-list-item>
+      <mat-list-item routerLink="/contacts">Contacts</mat-list-item>
+      <mat-list-item routerLink="/all-reservations">Reservations</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Update Event</span>
+    </mat-toolbar>
+
+    <div class="container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Update Event</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="titre" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Description</mat-label>
+              <input matInput formControlName="description" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Location</mat-label>
+              <input matInput formControlName="lieu" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Event Date</mat-label>
+              <input matInput formControlName="dateEvenement" type="date" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Price</mat-label>
+              <input matInput formControlName="prix" type="number" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Category</mat-label>
+              <mat-select formControlName="categorie">
+                <mat-option *ngFor="let category of categories" [value]="category">
+                  {{ category }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Event Time</mat-label>
+              <input matInput formControlName="heursEvenement" type="time" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Image URL</mat-label>
+              <input matInput formControlName="image" />
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Update Event</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
     </div>
-    <div>
-      <label for="description">Description</label>
-      <input id="description" formControlName="description" type="text" />
-    </div>
-    <div>
-      <label for="lieu">Location</label>
-      <input id="lieu" formControlName="lieu" type="text" />
-    </div>
-    <div>
-      <label for="dateEvenement">Event Date</label>
-      <input id="dateEvenement" formControlName="dateEvenement" type="date" />
-    </div>
-    <div>
-      <label for="prix">Price</label>
-      <input id="prix" formControlName="prix" type="number" />
-    </div>
-    <div>
-      <label for="categorie">Category</label>
-      <input id="categorie" formControlName="categorie" type="text" />
-    </div>
-    <div>
-      <label for="heursEvenement">Event Time</label>
-      <input id="heursEvenement" formControlName="heursEvenement" type="time" />
-    </div>
-    <div>
-      <label for="image">Image</label>
-      <input id="image" formControlName="image" type="text" />
-    </div>
-    <button type="submit">Update Event</button>
-  </form>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
